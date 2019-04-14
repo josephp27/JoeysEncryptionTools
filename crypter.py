@@ -15,7 +15,7 @@ def encrypt(path):
 		data = file.read()
 
 		if b'ENCRYPTED_' in data:
-			raise Exception()
+			raise ValueError
 
 		encrypted = fernet.encrypt(data)
 
@@ -34,8 +34,8 @@ def encrypt_all_yml(path):
 		try:
 			if 'application-' in type_:
 				encrypt(full_path)
-		except:
-			print('File already encrypted aborting...MF')
+		except ValueError:
+			print('File already encrypted aborting..')
 
 
 		if os.path.isdir(full_path):
