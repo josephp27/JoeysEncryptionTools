@@ -41,11 +41,13 @@ key=$(python key_generator.py $password)
 if [ -f ~/.zshrc ]; then
   echo "exporting key to zshell"  
   echo "export ENCRYPTION_TOOLS_KEY=$key" >> ~/.zshrc
+  source ~/.zshrc
 fi
 
 if [ -f ~/.bash_profile ]; then
   echo "exporting key to bash_profile"
-  echo "export ENCRYPTION_TOOLS_KEY='$key" >> ~/.bash_profile
+  echo "export ENCRYPTION_TOOLS_KEY=$key" >> ~/.bash_profile
+  source ~/.bash_profile
 fi
 
 echo "setting aliases"
@@ -61,5 +63,3 @@ echo "| To decrypt use: git reveal. |"
 echo "-------------------------------"
 echo ""
 echo ""
-
-echo "PLEASE RESTART TERMINAL FOR CHANGES TO TAKE EFFECT"
