@@ -12,7 +12,7 @@ def decrypt(path):
 	fernet = Fernet(key)
 	with open(path, 'rb+') as file:
 		data = file.read()
-		header = data[10:]
+		header = data[:10]
 
 		if b'ENCRYPTED_' not in header:
 			raise ValueError
