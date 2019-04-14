@@ -34,7 +34,7 @@ def decrypt_all_yml(path):
 			if 'application-' in type_:
 				decrypt(full_path)
 		except ValueError:
-			print('File not encrypted aborting...MF')
+			print('File not encrypted aborting..')
 
 		if os.path.isdir(full_path):
 			decrypt_all_yml(full_path)
