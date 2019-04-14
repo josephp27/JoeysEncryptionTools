@@ -1,6 +1,6 @@
 # JoeysEncryptionTools
 
-A very lightweight encryption tool used for encrypting yml files pushed to github.
+A very lightweight encryption tool used for encrypting application- files pushed to github.
 
 ## Install
 ```
@@ -34,6 +34,7 @@ git reveal
 Output will be similar to above, listing key and all files decrypting.
 
 ## Features
+- Will ignore base application file
 - Will abort if encrypting already encrypted file
 - Will abort if decrypting non encrypted file
 
