@@ -41,7 +41,7 @@ key=$(python key_generator.py $password)
 if [ -f ~/.zshrc ]; then
   echo "exporting key to zshell"  
   echo "export ENCRYPTION_TOOLS_KEY=$key" >> ~/.zshrc
-  source ~/.zshrc
+  zsh &
 fi
 
 if [ -f ~/.bash_profile ]; then
@@ -51,8 +51,8 @@ if [ -f ~/.bash_profile ]; then
 fi
 
 echo "setting aliases"
-git config --global alias.hide '!python /etc/EncryptionTools/crypter.py'
-git config --global alias.reveal '!python /etc/EncryptionTools/decrypt.py'
+git config --global alias.hide '!python /etc/JoeysEncryptionTools/crypter.py'
+git config --global alias.reveal '!python /etc/JoeysEncryptionTools/decrypt.py'
 
 echo ""
 echo ""
