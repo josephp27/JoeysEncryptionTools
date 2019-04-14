@@ -12,10 +12,10 @@ def decrypt(path):
 	fernet = Fernet(key)
 	with open(path, 'rb+') as file:
 		data = file.read()
-		header = b'ENCRYPTED_'
+		header = data[10:]
 
 		if b'ENCRYPTED_' not in header:
-			raise Exception()
+			raise ValueError
 
 		decrypt = fernet.decrypt(data[10:])
 		
@@ -33,7 +33,7 @@ def decrypt_all_yml(path):
 		try:
 			if 'application-' in type_:
 				decrypt(full_path)
-		except:
+		except ValueError:
 			print('File not encrypted aborting...MF')
 
 		if os.path.isdir(full_path):
