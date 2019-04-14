@@ -35,7 +35,7 @@ fi
 echo "cloning repository"
 git clone https://github.com/josephp27/JoeysEncryptionTools.git && cd JoeysEncryptionTools
 
-read -p "Encryption key password: " password
+read password <<<"Encryption key password: "
 key=$(python key_generator.py $password)
 
 if [ -f ~/.zshrc ]; then
