@@ -7,7 +7,6 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import sys
 
 password = sys.argv[1]
-print(password)
 salt = bytes(16)
 kdf = PBKDF2HMAC(
     algorithm=hashes.SHA256(),
