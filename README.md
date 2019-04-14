@@ -4,7 +4,7 @@ A very lightweight encryption tool used for encrypting application- files pushed
 
 ## Install
 ```
-curl -s https://raw.githubusercontent.com/josephp27/JoeysEncryptionTools/master/install.sh | sudo sh
+curl -fsSL https://raw.githubusercontent.com/josephp27/JoeysEncryptionTools/master/install.sh | sudo sh
 ```
 
 ## Encrypt
