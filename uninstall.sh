@@ -4,7 +4,8 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
-  
+
+cd /etc  
 if [ -f ~/.zshrc ]; then
   echo "removing key inside zshell"
   sed -i ".bak" '/ENCRYPTION_TOOLS_KEY/d' ~/.zshrc
