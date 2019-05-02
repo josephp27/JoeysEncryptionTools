@@ -2,9 +2,16 @@
 
 import os
 from cryptography.fernet import Fernet
+from glob import glob
 
 key = os.environ['ENCRYPTION_TOOLS_KEY']
 print('Using key: ' + key)
+
+specifiedFiles = []
+with open('.gitCrypt') as file:
+	lines = file.readlines()
+
+	specifiedFiles = [line.strip() for line in lines]
 
 def encrypt(path):
 	print('Encrypting: ' + path)
@@ -32,15 +39,16 @@ def encrypt_all_yml(path):
 		full_path = path + '/' + type_
 
 		try:
-			if 'application-' in type_:
-				encrypt(full_path)
+			for file in specifiedFiles:
+				if type_ in glob(file):
+					encrypt(full_path)
+
 		except ValueError:
 			print('File already encrypted aborting..')
 
 
 		if os.path.isdir(full_path):
 			encrypt_all_yml(full_path)
-
 
 
 encrypt_all_yml(os.getcwd())
