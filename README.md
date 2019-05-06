@@ -6,6 +6,16 @@ A very lightweight encryption tool used for encrypting application- files pushed
 ```
 curl -fsSL https://raw.githubusercontent.com/josephp27/JoeysEncryptionTools/master/install.sh | sudo sh
 ```
+NOTE: if the above install doesn't work because of curl, run:
+```
+sudo sh installOffline.sh
+```
+## Initialize
+The tool looks for a specified file called .gitCrypt in the base directory. This file is very similar to a .gitignore file. It takes wildcards (*) as well as any other Unix glob
+```
+git initencrypt
+```
+After running the above command, the .gitCrypt file will automatically be generated. Creating the .gitCrypt file yourself will also work if you don't want to run the above command (or forget like we all do)
 
 ## Encrypt
 ```
