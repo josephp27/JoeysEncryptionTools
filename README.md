@@ -44,12 +44,12 @@ git reveal
 Output will be similar to above, listing key and all files decrypting.
 
 ## Features
-- Will ignore base application file
 - Will abort if encrypting already encrypted file
 - Will abort if decrypting non encrypted file
+- User specified .gitCrypt file will search based on user input
 
 ## TODO
-- Add feature where user specifies file of all extensions wanted encrypted
+- None. Submit an issue if you have an idea for a feature!
 
 ## Uninstall
 ```
