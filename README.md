@@ -24,7 +24,6 @@ git hide
 
 Output will look something like this: 
 ```
-Using key: <your-key>
 Encrypting: .../resources/application-uat.txt
 Encrypting: .../resources/application-test.yml
 Encrypting: .../resources/application-local.yml
