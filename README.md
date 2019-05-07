@@ -1,6 +1,6 @@
 # JoeysEncryptionTools
 
-A very lightweight encryption tool used for encrypting application- files pushed to github.
+A very lightweight encryption tool used for encrypting user-specified files pushed to github.
 
 ## Install
 ```
