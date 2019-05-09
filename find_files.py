@@ -1,3 +1,5 @@
+import os
+
 def find_all_files(path, callback):
 
 	for type_ in os.listdir(path):
@@ -5,7 +7,7 @@ def find_all_files(path, callback):
 		full_path = path + '/' + type_
 
 		if os.path.isdir(full_path):
-			find_all_files(full_path)
+			find_all_files(full_path, callback)
 		else:
 			callback(full_path)
 
