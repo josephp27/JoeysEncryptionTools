@@ -1,4 +1,4 @@
-# Joey's Encryption Tools
+# GitCrypt
 
 A very lightweight encryption tool used for encrypting user-specified files pushed to github.
 
