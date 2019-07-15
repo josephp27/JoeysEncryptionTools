@@ -4,7 +4,7 @@ A very lightweight encryption tool used for encrypting user-specified files push
 
 ## Install
 ```
-curl -fsSL https://raw.githubusercontent.com/josephp27/JoeysEncryptionTools/master/install.sh | sudo sh
+curl -fsSL https://raw.githubusercontent.com/josephp27/GitCrypt/master/install.sh | sudo sh
 ```
 NOTE: if the above install doesn't work because of curl, run:
 ```
