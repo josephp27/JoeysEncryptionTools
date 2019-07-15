@@ -52,5 +52,5 @@ Output will be similar to above, listing key and all files decrypting.
 
 ## Uninstall
 ```
-curl -s https://raw.githubusercontent.com/josephp27/JoeysEncryptionTools/master/uninstall.sh | sudo sh
+curl -s https://raw.githubusercontent.com/josephp27/GitCrypt/master/install.sh | sudo sh
 ```
