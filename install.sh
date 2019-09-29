@@ -5,13 +5,13 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo "=======Installing EncryptionTools======="
+echo "=======Installing GitCrypt======="
 
 echo "Installing cryptography library"
 pip install cryptography
 
 cd /etc
-if [ -d "JoeysEncryptionTools" ]; then
+if [ -d "GitCrypt" ]; then
   echo "encryption tools already exists, removing..."
   
   if [ -f ~/.zshrc ]; then
@@ -25,7 +25,7 @@ if [ -d "JoeysEncryptionTools" ]; then
   fi
 
   echo "removing files"
-  rm -rf JoeysEncryptionTools
+  rm -rf GitCrypt
 
   echo "unsetting git aliases"
   git config --global --unset alias.hide
@@ -33,7 +33,7 @@ if [ -d "JoeysEncryptionTools" ]; then
 fi
 
 echo "cloning repository"
-git clone https://github.com/josephp27/JoeysEncryptionTools.git && cd JoeysEncryptionTools
+git clone https://github.com/josephp27/GitCrypt.git && cd GitCrypt
 
 read -p "Encryption key password: " password </dev/tty
 key=$(python key_generator.py $password)
@@ -51,13 +51,13 @@ if [ -f ~/.bash_profile ]; then
 fi
 
 echo "setting aliases"
-git config --global alias.hide '!python /etc/JoeysEncryptionTools/crypter.py'
-git config --global alias.reveal '!python /etc/JoeysEncryptionTools/decrypt.py'
+git config --global alias.hide '!python /etc/GitCrypt/crypter.py'
+git config --global alias.reveal '!python /etc/GitCrypt/decrypt.py'
 
 echo ""
 echo ""
 echo "-------------------------------"
-echo "| Install successful          |"         
+echo "| Install successful!         |"         
 echo "| To encrypt use: git hide    |"
 echo "| To decrypt use: git reveal. |"
 echo "-------------------------------"
