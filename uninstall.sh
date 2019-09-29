@@ -17,7 +17,7 @@ if [ -f ~/.bash_profile ]; then
 fi
 
 echo "removing files"
-rm -rf JoeysEncryptionTools
+rm -rf GitCrypt
 
 echo "unsetting git aliases"
 git config --global --unset alias.hide
