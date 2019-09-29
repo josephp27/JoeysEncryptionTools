@@ -5,13 +5,13 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo "=======Installing EncryptionTools======="
+echo "=======Installing GitCrypt======="
 
 echo "Installing cryptography library"
 pip install cryptography
 
 
-if [ -d /etc/JoeysEncryptionTools ]; then
+if [ -d /etc/GitCrypt ]; then
   echo "encryption tools already exists, removing..."
   
   if [ -f ~/.zshrc ]; then
@@ -25,7 +25,7 @@ if [ -d /etc/JoeysEncryptionTools ]; then
   fi
 
   echo "removing files"
-  rm -rf JoeysEncryptionTools
+  rm -rf GitCrypt
 
   echo "unsetting git aliases"
   git config --global --unset alias.hide
@@ -33,11 +33,11 @@ if [ -d /etc/JoeysEncryptionTools ]; then
   git config --global --unset alias.initEncrypt
 fi
 
-if [ ! -d /etc/JoeysEncryptionTools ]; then
-	mkdir /etc/JoeysEncryptionTools
+if [ ! -d /etc/GitCrypt ]; then
+	mkdir /etc/GitCrypt
 fi
 
-cp -r . /etc/JoeysEncryptionTools
+cp -r . /etc/GitCrypt
 
 read -p "Encryption key password: " password </dev/tty
 key=$(python key_generator.py $password)
@@ -53,9 +53,9 @@ if [ -f ~/.bash_profile ]; then
 fi
 
 echo "setting aliases"
-git config --global alias.hide '!python /etc/JoeysEncryptionTools/crypter.py'
-git config --global alias.reveal '!python /etc/JoeysEncryptionTools/decrypt.py'
-git config --global alias.initEncrypt '!python /etc/JoeysEncryptionTools/initEncrypt.py'
+git config --global alias.hide '!python /etc/GitCrypt/crypter.py'
+git config --global alias.reveal '!python /etc/GitCrypt/decrypt.py'
+git config --global alias.initEncrypt '!python /etc/GitCrypt/initEncrypt.py'
 
 echo ""
 echo ""
