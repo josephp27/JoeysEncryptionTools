@@ -1,5 +1,5 @@
 #!/bin/sh
-CRYPT_HOME="/$HOME/GitCrypt"
+CRYPT_HOME="$HOME/GitCrypt"
 PYTHON_LOCATION="bin/python3"
 
 if [ "$EUID" -ne 0 ]
