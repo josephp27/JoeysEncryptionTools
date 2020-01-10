@@ -3,12 +3,9 @@
 A very lightweight encryption tool used for encrypting user-specified files pushed to github. This tool encrypts the contents of the file, while creating no duplicates or renames to the file itself
 
 ## Install
+Requires [Python 3.8.1](https://www.python.org/downloads/release/python-381/)
 ```
-curl -fsSL https://raw.githubusercontent.com/josephp27/GitCrypt/master/install.sh | sudo sh
-```
-NOTE: if the above install doesn't work because of curl, run:
-```
-sudo sh installOffline.sh
+sudo sh install.sh
 ```
 ## Initialize
 The tool looks for a specified file called .gitCrypt in the base directory. This file is very similar to a .gitignore file. It takes wildcards (*) as well as any other Unix glob
