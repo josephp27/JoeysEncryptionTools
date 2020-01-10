@@ -1,4 +1,6 @@
 #!/bin/sh
+CRYPT_HOME="/etc/GitCrypt"
+PYTHON_LOCATION="bin/python3"
 
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -7,11 +9,8 @@ fi
 
 echo "=======Installing GitCrypt======="
 
-echo "Installing cryptography library"
-pip install cryptography
 
-cd /etc
-if [ -d "GitCrypt" ]; then
+if [ -d $CRYPT_HOME ]; then
   echo "encryption tools already exists, removing..."
   
   if [ -f ~/.zshrc ]; then
@@ -30,36 +29,42 @@ if [ -d "GitCrypt" ]; then
   echo "unsetting git aliases"
   git config --global --unset alias.hide
   git config --global --unset alias.reveal
+  git config --global --unset alias.initEncrypt
 fi
 
-echo "cloning repository"
-git clone https://github.com/josephp27/GitCrypt.git && cd GitCrypt
+echo "moving files to $HOME"
 
-read -p "Encryption key password: " password </dev/tty
-key=$(python key_generator.py $password)
+if [ ! -d $CRYPT_HOME ]; then
+	mkdir $CRYPT_HOME
+fi
+
+cp -r . $CRYPT_HOME
+
+read -p "encryption key password: " password </dev/tty
+key=$($CRYPT_HOME/$PYTHON_LOCATION key_generator.py $password)
 
 if [ -f ~/.zshrc ]; then
   echo "exporting key to zshell"  
   echo "export ENCRYPTION_TOOLS_KEY=$key" >> ~/.zshrc
-  zsh &
 fi
 
 if [ -f ~/.bash_profile ]; then
   echo "exporting key to bash_profile"
   echo "export ENCRYPTION_TOOLS_KEY=$key" >> ~/.bash_profile
-  source ~/.bash_profile
 fi
 
 echo "setting aliases"
-git config --global alias.hide '!python /etc/GitCrypt/crypter.py'
-git config --global alias.reveal '!python /etc/GitCrypt/decrypt.py'
+git config --global alias.hide "!$CRYPT_HOME/$PYTHON_LOCATION /etc/GitCrypt/crypter.py"
+git config --global alias.reveal "!$CRYPT_HOME/$PYTHON_LOCATION /etc/GitCrypt/decrypt.py"
+git config --global alias.initEncrypt "!$CRYPT_HOME/$PYTHON_LOCATION /etc/GitCrypt/initEncrypt.py"
 
 echo ""
 echo ""
-echo "-------------------------------"
-echo "| Install successful!         |"         
-echo "| To encrypt use: git hide    |"
-echo "| To decrypt use: git reveal. |"
-echo "-------------------------------"
+echo "--------------------------------------------"
+echo "| Install Complete!                        |"
+echo "| Initialize dir: git initEncrypt          |"         
+echo "| To encrypt use: git hide                 |"
+echo "| To decrypt use: git reveal.              |"
+echo "--------------------------------------------"
 echo ""
 echo ""
