@@ -45,3 +45,6 @@ if (Test-Path -Path $installDir -PathType Container) {
     git config --global --unset alias.reveal
     git config --global --unset alias.initEncrypt
 }
+
+Write-Output "You should unset the ENCRYPTION_TOOLS_KEY environment variable in each shell you were using with GitCrypt."
+Write-Output "e.g. in ~/.bash_profile, remove the line(s) starting with export ENCRYPTION_TOOLS_KEY="
