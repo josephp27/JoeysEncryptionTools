@@ -1,5 +1,3 @@
-#!/bin/env/python
-
 import os
 from cryptography.fernet import Fernet
 from glob import glob
