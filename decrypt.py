@@ -1,7 +1,7 @@
 import os
 from cryptography.fernet import Fernet
 from glob import glob
-from find_files import find_all_files, load_git_crypt
+from find_files import load_git_crypt
 
 key = os.environ['ENCRYPTION_TOOLS_KEY']
 
@@ -26,8 +26,5 @@ def decrypt(path):
 specifiedFiles = load_git_crypt()
 
 for file in specifiedFiles:
-	for location in glob(file):
-		if os.path.isdir(location):
-			find_all_files(location, decrypt)
-		else:
-			decrypt(location)
+    for location in glob(file, recursive=True):
+        decrypt(location)
