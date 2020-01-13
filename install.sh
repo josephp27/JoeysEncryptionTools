@@ -54,9 +54,9 @@ if [ -f ~/.bash_profile ]; then
 fi
 
 echo "setting aliases"
-git config --global alias.hide "!$CRYPT_HOME/$PYTHON_LOCATION /etc/GitCrypt/crypter.py"
-git config --global alias.reveal "!$CRYPT_HOME/$PYTHON_LOCATION /etc/GitCrypt/decrypt.py"
-git config --global alias.initEncrypt "!$CRYPT_HOME/$PYTHON_LOCATION /etc/GitCrypt/initEncrypt.py"
+git config --global alias.hide "!$CRYPT_HOME/$PYTHON_LOCATION $CRYPT_HOME/crypter.py"
+git config --global alias.reveal "!$CRYPT_HOME/$PYTHON_LOCATION $CRYPT_HOME/decrypt.py"
+git config --global alias.initEncrypt "!$CRYPT_HOME/$PYTHON_LOCATION $CRYPT_HOME/initEncrypt.py"
 
 echo ""
 echo ""
