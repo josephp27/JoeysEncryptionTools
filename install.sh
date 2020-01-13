@@ -24,7 +24,7 @@ if [ -d $CRYPT_HOME ]; then
   fi
 
   echo "removing files"
-  rm -rf GitCrypt
+  rm -rf $CRYPT_HOME
 
   echo "unsetting git aliases"
   git config --global --unset alias.hide
