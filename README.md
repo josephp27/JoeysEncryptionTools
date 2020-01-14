@@ -4,7 +4,7 @@ A very lightweight encryption tool used for encrypting user-specified files push
 
 ## Install - MacOS
 Installing via the shell script uses a virtual environment for quick and easy installation
-#### Prerequisites
+### Prerequisites
 [Python 3.8.1](https://www.python.org/downloads/release/python-381/)
 ```
 sudo sh install.sh
