@@ -1,9 +1,11 @@
 # GitCrypt
 
 A very lightweight encryption tool used for encrypting user-specified files pushed to github. This tool encrypts the contents of the file, while creating no duplicates or renames to the file itself
-## Prerequisites
-[Python 3.8.1](https://www.python.org/downloads/release/python-381/)
+
 ## Install - MacOS
+Installing via the shell script uses a virtual environment for quick and easy installation
+#### Prerequisites
+[Python 3.8.1](https://www.python.org/downloads/release/python-381/)
 ```
 sudo sh install.sh
 ```
